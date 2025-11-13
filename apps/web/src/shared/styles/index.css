@@ -1,0 +1,329 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  /* Background Colors - SecureAI Design System */
+  --background: #0A0A0A;
+  --surface: rgba(255, 255, 255, 0.03);
+  --surface-hover: rgba(255, 255, 255, 0.06);
+
+  /* Text Colors */
+  --foreground: #FFFFFF;
+  --foreground-secondary: rgba(255, 255, 255, 0.9);
+  --foreground-tertiary: #9CA3AF;
+  --muted-foreground: #6B7280;
+  --muted-subtle: #4B5563;
+
+  /* Border Colors */
+  --border: rgba(255, 255, 255, 0.08);
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-focus: rgba(255, 255, 255, 0.12);
+
+  /* Accent Colors */
+  --primary: #3B82F6;
+  --primary-hover: #2563EB;
+  --primary-foreground: #FFFFFF;
+  
+  --success: #10B981;
+  --warning: #F59E0B;
+  --error: #EF4444;
+  --info: #A855F7;
+
+  /* Error/Alert Colors */
+  --error-bg: rgba(239, 68, 68, 0.1);
+  --error-border: rgba(239, 68, 68, 0.2);
+
+  /* Component Colors */
+  --card: rgba(255, 255, 255, 0.03);
+  --card-foreground: #FFFFFF;
+  --input: rgba(255, 255, 255, 0.03);
+  --input-border: rgba(255, 255, 255, 0.08);
+  --ring: rgba(255, 255, 255, 0.12);
+
+  /* Sidebar Colors */
+  --sidebar: #0A0A0A;
+  --sidebar-foreground: #FFFFFF;
+  --sidebar-border: rgba(255, 255, 255, 0.08);
+  --sidebar-accent: rgba(255, 255, 255, 0.04);
+  --sidebar-accent-hover: rgba(255, 255, 255, 0.08);
+
+  /* Tool Call Colors */
+  --tool-running: #3B82F6;
+  --tool-complete: #10B981;
+  --tool-error: #EF4444;
+
+  /* Thinking Block Colors */
+  --thinking-bg: rgba(59, 130, 246, 0.06);
+  --thinking-border: rgba(59, 130, 246, 0.2);
+
+  /* Primary Glow/Shadow */
+  --primary-glow: rgba(59, 130, 246, 0.3);
+  
+  /* Sidebar Footer Background */
+  --sidebar-footer-bg: rgba(59, 130, 246, 0.1);
+  --sidebar-footer-border: rgba(59, 130, 246, 0.2);
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+@theme inline {
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+
+  /* Colors */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-foreground-secondary: var(--foreground-secondary);
+  --color-foreground-tertiary: var(--foreground-tertiary);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted-subtle: var(--muted-subtle);
+  
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-foreground: var(--primary-foreground);
+  
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+  --color-info: var(--info);
+  
+  --color-error-bg: var(--error-bg);
+  --color-error-border: var(--error-border);
+  
+  --color-border: var(--border);
+  --color-border-subtle: var(--border-subtle);
+  --color-border-focus: var(--border-focus);
+  
+  --color-input: var(--input);
+  --color-input-border: var(--input-border);
+  --color-ring: var(--ring);
+  
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-hover: var(--sidebar-accent-hover);
+  
+  --color-tool-running: var(--tool-running);
+  --color-tool-complete: var(--tool-complete);
+  --color-tool-error: var(--tool-error);
+  
+  --color-thinking-bg: var(--thinking-bg);
+  --color-thinking-border: var(--thinking-border);
+  
+  --color-primary-glow: var(--primary-glow);
+  --color-sidebar-footer-bg: var(--sidebar-footer-bg);
+  --color-sidebar-footer-border: var(--sidebar-footer-border);
+}
+
+/* Dark theme is default for SecureAI */
+.dark,
+:root {
+  /* Colors are already set in :root above */
+}
+
+/* Light theme */
+.light {
+  /* Background Colors */
+  --background: hsl(0, 0%, 100%);
+  --surface: rgba(0, 0, 0, 0.03);
+  --surface-hover: rgba(0, 0, 0, 0.06);
+
+  /* Text Colors */
+  --foreground: #0A0A0A;
+  --foreground-secondary: rgba(10, 10, 10, 0.9);
+  --foreground-tertiary: #4B5563;
+  --muted-foreground: #6B7280;
+  --muted-subtle: #9CA3AF;
+
+  /* Border Colors */
+  --border: rgba(0, 0, 0, 0.08);
+  --border-subtle: rgba(0, 0, 0, 0.06);
+  --border-focus: rgba(0, 0, 0, 0.12);
+
+  /* Accent Colors - Same as dark */
+  --primary: #3B82F6;
+  --primary-hover: #2563EB;
+  --primary-foreground: #FFFFFF;
+  
+  --success: #10B981;
+  --warning: #F59E0B;
+  --error: #EF4444;
+  --info: #A855F7;
+
+  /* Error/Alert Colors */
+  --error-bg: rgba(239, 68, 68, 0.1);
+  --error-border: rgba(239, 68, 68, 0.2);
+
+  /* Component Colors */
+  --card: rgba(0, 0, 0, 0.03);
+  --card-foreground: #0A0A0A;
+  --input: rgba(0, 0, 0, 0.03);
+  --input-border: rgba(0, 0, 0, 0.08);
+  --ring: rgba(0, 0, 0, 0.12);
+
+  /* Sidebar Colors */
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #0A0A0A;
+  --sidebar-border: rgba(0, 0, 0, 0.08);
+  --sidebar-accent: rgba(0, 0, 0, 0.04);
+  --sidebar-accent-hover: rgba(0, 0, 0, 0.08);
+
+  /* Tool Call Colors - Same as dark */
+  --tool-running: #3B82F6;
+  --tool-complete: #10B981;
+  --tool-error: #EF4444;
+
+  /* Thinking Block Colors */
+  --thinking-bg: rgba(59, 130, 246, 0.06);
+  --thinking-border: rgba(59, 130, 246, 0.2);
+
+  /* Primary Glow/Shadow */
+  --primary-glow: rgba(59, 130, 246, 0.3);
+  
+  /* Sidebar Footer Background */
+  --sidebar-footer-bg: rgba(59, 130, 246, 0.1);
+  --sidebar-footer-border: rgba(59, 130, 246, 0.2);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html, body {
+    @apply h-full w-full;
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  
+  #root {
+    @apply h-full w-full;
+  }
+
+  /* Typography - SecureAI Design System */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.025em;
+    color: var(--foreground);
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  /* Standard transitions */
+  * {
+    transition-property: background-color, border-color, color, opacity, transform;
+    transition-duration: 150ms;
+    transition-timing-function: ease;
+  }
+
+  /* Thinking indicator animation */
+  @keyframes thinking-pulse {
+    0%, 60%, 100% {
+      opacity: 0.4;
+      transform: scale(1);
+    }
+    30% {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+  }
+
+  .aui-thinking-dot {
+    animation: thinking-pulse 1.4s ease-in-out infinite;
+  }
+}
