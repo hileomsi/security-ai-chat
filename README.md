@@ -281,6 +281,47 @@ modules/
    - E2E tests for main user journeys
    - Load and stress tests
 
+4. **Version Control and Git Workflow**:
+   - **Semantic Commits**: Implement Conventional Commits specification
+     - Format: `type(scope): subject`
+     - Types: `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `chore`, `ci`, `build`, `revert`
+     - Examples:
+       - `feat(chat): add image attachment support`
+       - `fix(api): resolve streaming timeout issue`
+       - `docs(readme): update installation instructions`
+     - Benefits: Automated changelog generation, semantic versioning, clear commit history
+   
+   - **Branch Organization**: Choose appropriate branching strategy
+     - **Git Flow** (for projects with release cycles):
+       - `main/master`: Production-ready code
+       - `develop`: Integration branch for features
+       - `feature/*`: New features (e.g., `feature/chat-persistence`)
+       - `release/*`: Preparation for releases
+       - `hotfix/*`: Critical production fixes
+       - `bugfix/*`: Non-critical bug fixes
+     
+     - **Trunk-Based Development** (for continuous deployment):
+       - `main`: Single integration branch
+       - Short-lived feature branches (max 1-2 days)
+       - Feature flags for incomplete features
+       - Direct commits to main for small changes
+       - Benefits: Faster integration, reduced merge conflicts, simpler workflow
+     
+     - **Hybrid Approach** (recommended for this project):
+       - `main`: Production branch (protected)
+       - `develop`: Staging/integration branch
+       - `feature/*`: Feature development
+       - `hotfix/*`: Production hotfixes
+       - Branch protection rules: Require PR reviews, status checks, no force push
+   
+   - **Pull Request Standards**:
+     - Descriptive titles following commit conventions
+     - Detailed descriptions with context and testing notes
+     - Link to related issues/tickets
+     - Required reviewers for code quality
+     - Automated checks (lint, tests, type checking) must pass
+     - Squash and merge for clean history (or rebase for linear history)
+
 ### UX Improvements
 
 1. **Accessibility**:
