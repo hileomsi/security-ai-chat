@@ -296,4 +296,43 @@ modules/
    - Multi-language support (i18n)
    - Date/number formatting by locale
 
-4 **Shortcuts**
+4. **Keyboard Shortcuts**:
+   - Cmd/Ctrl+N for new conversation
+   - Enter to send message
+   - Esc to cancel/close modals
+   - Cmd/Ctrl+K for search
+
+### Technical Improvements
+
+1. **Shared Packages Architecture**:
+   - Leverage existing monorepo packages (`packages/ui`, `packages/eslint-config`, `packages/typescript-config`) to centralize shared code
+   - Create additional packages for:
+     - **Authentication module**: Shared auth logic, hooks, and components across apps
+     - **API client**: Centralized API client with type-safe endpoints
+     - **Design system**: Expand `packages/ui` with more components (forms, data tables, etc.)
+     - **Validation schemas**: Shared Zod schemas for API validation
+   - Benefits: Single source of truth, easier maintenance, consistent behavior across apps
+
+2. **Type Safety Enhancements**:
+   - Implement end-to-end type safety from database to frontend
+   - Use tools like `tRPC` or code generation for API type sharing
+
+3. **State Management Optimization**:
+   - Consider migrating from Zustand to more structured state management for complex flows
+   - Implement state persistence middleware for critical data
+
+4. **Component Library Expansion**:
+   - Expand `packages/ui` with comprehensive component set
+   - Add Storybook for component documentation and testing
+   - Implement component variants system using `class-variance-authority`
+   - Create design tokens package for consistent theming
+
+5. **Build and Bundle Optimization**:
+   - Implement tree-shaking optimizations
+   - Add bundle analysis tools (webpack-bundle-analyzer, vite-bundle-visualizer)
+   - Optimize code splitting strategies
+   - Implement lazy loading for routes and heavy components
+
+6. **Testing Infrastructure**:
+   - Set up testing framework (Vitest for unit tests, Playwright for E2E)
+   - Add test utilities package for shared testing helpers
